@@ -30,6 +30,11 @@
   "bugs": {
     "url": "https://github.com/teleporthq/thq-lit-components/issues"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged && npm test"
+    }
+  },
   "homepage": "https://github.com/teleporthq/thq-lit-components#readme",
   "devDependencies": {
     "jsdom": "^22.1.0",
