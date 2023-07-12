@@ -1,25 +1,23 @@
 {
-  "name": "thq-lit-components",
+  "name": "lit-components",
   "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "type": "module",
   "exports": {
     ".": {
-      "import": "./dist/thq-lit-components.js",
-      "require": "./dist/thq-lit-components.cjs.js"
+      "import": "./dist/lit-components.js",
+      "require": "./dist/lit-components.cjs"
     },
-    "./cjs": {
-      "import": "./dist/thq-lit-components.cjs.js",
-      "require": "./dist/thq-lit-components.cjs.js"
+    "./date-time-primitive": {
+      "umd": "./dist/date-time-primitive.umd.cjs"
     },
-    "./umd": {
-      "import": "./dist/thq-lit-components.umd.js",
-      "require": "./dist/thq-lit-components.umd.js"
+    "./dangerous-html": {
+      "umd": "./dist/dangerous-html.umd.cjs"
     }
   },
   "scripts": {
-    "build": "vite build & node build.umd.js",
+    "build": "vite build && node build.umd.js",
     "test": "vitest run"
   },
   "repository": {
@@ -39,6 +37,7 @@
   "homepage": "https://github.com/teleporthq/thq-lit-components#readme",
   "devDependencies": {
     "jsdom": "^22.1.0",
+    "prettier": "^3.0.0",
     "pretty-quick": "^3.1.3",
     "vite": "^4.3.9",
     "vitest": "^0.32.4"

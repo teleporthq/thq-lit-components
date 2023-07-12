@@ -3,14 +3,18 @@ import { defineConfig } from 'vite'
 
 export default defineConfig({
   build: {
+    emptyOutDir: true,
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
-      name: 'lit-components',
-      formats: ['es', 'cjs', 'umd'],
+      formats: ['es', 'cjs'],
     },
-  },
-  test: {
-    globals: true,
-    environment: 'jsdom',
-  },
+    rollupOptions: {
+      external: [
+        "lit",
+        "dayjs",
+        "lit/decorators/custom-element.js",
+        "lit/decorators/property.js"
+      ]
+    },
+  }
 })

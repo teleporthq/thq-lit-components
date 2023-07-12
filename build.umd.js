@@ -1,17 +1,19 @@
-import { build } from 'vite'
+import { build } from "vite";
 
 const libraries = [
   {
-    entry: './src/date-time/index.ts',
-    name: 'DateTimePrimitive',
-    fileName: 'date-time-primitive',
+    entry: "./src/date-time/index.ts",
+    name: "DateTimePrimitive",
+    fileName: "date-time-primitive",
+    formats: ["umd"],
   },
   {
-    entry: './src/dangerous-html/index.ts',
-    name: 'DangerouslySetInnerHtmlContent',
-    fileName: 'dangerous-html',
+    entry: "./src/dangerous-html/index.ts",
+    name: "DangerouslySetInnerHtmlContent",
+    fileName: "dangerous-html",
+    formats: ["umd"],
   },
-]
+];
 
 libraries.forEach(async (libItem) => {
   await build({
@@ -21,5 +23,5 @@ libraries.forEach(async (libItem) => {
       emptyOutDir: false,
       rollupOptions: {},
     },
-  })
-})
+  });
+});

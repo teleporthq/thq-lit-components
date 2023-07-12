@@ -1,28 +1,28 @@
-import { LitElement } from 'lit'
-import { customElement } from 'lit/decorators/custom-element.js'
-import { property } from 'lit/decorators/property.js'
+import { LitElement } from "lit";
+import { customElement } from "lit/decorators/custom-element.js";
+import { property } from "lit/decorators/property.js";
 
-@customElement('dangerous-html')
+@customElement("dangerous-html")
 export class DangerouslySetInnerHtmlContent extends LitElement {
-  @property() declare html: string
-  @property() declare shadow: boolean
+  @property() declare html: string;
+  @property() declare shadow: boolean;
 
   createRenderRoot() {
-    return this.shadow ? this.attachShadow({ mode: 'open' }) : this
+    return this.shadow ? this.attachShadow({ mode: "open" }) : this;
   }
 
   connectedCallback(): void {
-    super.connectedCallback()
+    super.connectedCallback();
 
-    const slotHtml = document.createRange().createContextualFragment(this.html)
-    window.addEventListener('load', () => {
+    const slotHtml = document.createRange().createContextualFragment(this.html);
+    window.addEventListener("load", () => {
       if (this.shadow) {
-        this.shadowRoot.append(slotHtml)
-        return
+        this.shadowRoot.append(slotHtml);
+        return;
       }
 
-      this.style.display = 'contents'
-      this.append(slotHtml)
-    })
+      this.style.display = "contents";
+      this.append(slotHtml);
+    });
   }
 }
